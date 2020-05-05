@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://cdn.rawgit.com/yegor256/tacit/gh-pages/tacit-css-1.2.8.min.css"/>
+
+<p>
+  <strong>Gossiper:</strong>
+  <%= @gossip.anonymous_author %>
+</p>
+
+<p>
+  <strong>Gossip:</strong>
+  <%= @gossip.content %>
+</p>
+
+<%= link_to 'Editer', edit_gossip_path(@gossip) %>
+<%= link_to 'Retour', gossips_path %>

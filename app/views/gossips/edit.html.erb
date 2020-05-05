@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://cdn.rawgit.com/yegor256/tacit/gh-pages/tacit-css-1.2.8.min.css"/>
+
+
+
+<%= form_with(model: @gossip, local: true) do |form| %>
+
+  <% if @gossip.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@gossip.errors.count, "error") %> prohibited
+        this gossip from being saved:
+      </h2>
+      <ul>
+        <% @gossip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :Gossiper %><br>
+    <%= form.text_field :anonymous_author %>
+  </p>
+
+  <p>
+    <%= form.label :Gossip %><br>
+    <%= form.text_area :content %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Retour', gossips_path %>

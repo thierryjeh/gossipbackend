@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Gossip.create(anonymous_author: "Serenna", content: "Blair aime Chuck")
+
+Gossip.create(anonymous_author: "Blair", content: "Serenna aime Dan")
