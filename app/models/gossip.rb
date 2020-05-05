@@ -1,4 +1,5 @@
 class Gossip < ApplicationRecord
+  belongs_to :user
+  has_many :gossip_tags
+  has_many :tags, through: :gossip_tags
 end
-
-#mon model Gossip, qui contient la classe gossip et qui lui permettra d'interpréter les actions du controller, et de contenir la donnée adossée

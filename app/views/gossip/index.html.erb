@@ -1,0 +1,10 @@
+<h1>Gossip n°<%=@id%></h1>
+<p>Son titre : <%=Gossip.all[@id -1].title%> </br>
+Son contenu : <%=Gossip.all[@id -1].content%> </br>
+Créé le : <%=Gossip.all[@id -1].created_at.strftime("%d of %B, %Y") %> </br></br>
+
+Son auteur est : <%=Gossip.all[@id -1].user.first_name%> <%=Gossip.all[@id -1].user.last_name%> </br></br>
+Tu veux en savoir plus sur lui ??? Et bah cliques ici :</br>
+<%= link_to "Gossiper link", user_description_path(Gossip.all[@id -1].user.id) %>
+</p>
+

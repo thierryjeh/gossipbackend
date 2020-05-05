@@ -1,13 +1,40 @@
-# Thegossiproject
+# Bienvenue dans ce projet THP : The Gossip Project
 
-1 - bundle install
+*Projet réalisé par Aurore CARRIERE & Nicolas HODEE- le 04/05/2020*
 
-2 - bundle update (si nécessaire)
+***********************
 
-3 - rails db:migrate
+### Exercice :
 
-4 - rails db:seed
+Petite application qui regroupe les potins de THP.
 
-5 - rails c
 
-6 - http://localhost:3000/
+### Comment lancer l'application ?
+
+C'est simple ne t'en fais pas !!
+Il suffit d'entrer (séparément) les lignes suivantes dans le terminal :
+
+```
+$ bundle install
+
+$ rails db:create
+
+$ rails db:migrate
+```
+(Inutile de faire le seed : il a déjà été fait)
+
+### Comment l'utiliser ?
+
+Ouvrir dans le navigateur : http://localhost:3000/
+
+Bienvenue dans cette petite application où on peut :
+* Consulter les derniers ragôts
+* L'équipe en charge du projet
+* Contacter l'équipe
+
+
+### Commentaires
+
+Rien à ajouter :D
+
+**Merci d'avance pour la correction :)**
