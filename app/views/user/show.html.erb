@@ -1,0 +1,51 @@
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light ">
+    <a class="navbar-brand">TheGossiProject</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav nav-pills">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Team", team_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Contact", contact_path, class: "nav-link"%>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<br><br><br>
+<div class="container">
+  <div class="card my-5">
+    <div class="card-body">
+      <%= @user.id %>
+    </div>
+    <div class="card-body py-1 row">
+      
+      <h1 class="card-title col-sm-12 text-center">
+      <br><span class:"text-dark"><%= @user.first_name%> <%= @user.last_name%></span> <br>
+        <small><span class="text-warning"> </span><%= @user.email%><br>
+        <span class="text-warning"> </span><%= @user.age%> years old</small>
+      </h1>
+    </div>
+    <div class="card-body text-muted ">
+         lives in<%user_city = @user.city%>
+     <%= user_city.name%>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="mb-3"><strong>Gossips : </strong></h3>
+    <% @gossips.each do |gossip| %>
+      <h5> <%= link_to gossip.title, gossip_path(gossip.id), class:"text-dark"%>    
+     <% end %>
+  </div>
+
+</div>
+

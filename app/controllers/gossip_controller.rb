@@ -1,5 +1,5 @@
 class GossipController < ApplicationController
-  def index
-    @id = params[:id].to_i
+  def show
+    @gossip = Gossip.find(params[:id])
   end
 end

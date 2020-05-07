@@ -1,5 +1,6 @@
 class UserController < ApplicationController
-  def user_description
-    @user_id = params[:user_id].to_i
+  def show
+    @user = User.find(params[:id])  
+    @gossips = User.find(params[:id]).gossips
   end
 end
