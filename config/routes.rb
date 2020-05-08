@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   #pages menu
   get '/team', to: 'static_pages#team'
   get '/contact', to: 'static_pages#contact'
+  get '/welcome', to: 'static_pages#welcome'
+
 
   #gossips
   resources :gossips do

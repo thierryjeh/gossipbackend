@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to gossip_path(@gossip)
         else
-            redirect_to gossip_path(@gossip), alert: "Tu n'as rien écris ..."
+            redirect_to gossip_path(@gossip), alert: "?? ..."
         end
     end
   
@@ -32,10 +32,10 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
       if @comment.update(content: params[:content])
         redirect_to gossip_path
-        flash[:success] = "Le commentaire a bien été modifié!"
+        flash[:success] = "Comment changed"
       else
         render :edit
-        flash[:error] = "Le commentaire n'a pas un format valide, merci de le saisir à nouveau"
+        flash[:error] = "Not in valid format!"
   
       end
     end
@@ -43,7 +43,7 @@ class CommentsController < ApplicationController
     def destroy
       @comment = Comment.find(params[:id])
         if @comment.destroy
-        flash[:success] = "Ton commentaire a été correctement détruit!"
+        flash[:success] = "Comment deleted!"
           redirect_to gossip_path(@comment.gossip.id)
         else
           render 'edit'

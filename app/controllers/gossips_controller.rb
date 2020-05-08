@@ -20,13 +20,13 @@ class GossipsController < ApplicationController
   end
 
 def create
-    @gossip = Gossip.new(user: User.first, title: params[:title], content: params[:content])
+    @gossip = Gossip.new(user: User.last, title: params[:title], content: params[:content])
 
     if @gossip.save      
       redirect_to "/"
-      flash[:success] = "Le gossip a bien été créé!"
+      flash[:success] = "Gossip created!"
     else
-      flash[:error] = "Le gossip n'a pas un format valide, merci de le saisir à nouveau"
+      flash[:error] = "Not in valid format! "
       render :new
       
     end
@@ -41,11 +41,11 @@ def create
 
   def update
     @gossip = Gossip.find(params[:id])
-    if @gossip.update(user: User.first, title: params[:title], content: params[:content])
+    if @gossip.update(user: User.last, title: params[:title], content: params[:content])
       redirect_to "/"
-      flash[:success] = "Le gossip a bien été modifié!"
+      flash[:success] = "Gossip edited!"
     else
-      flash[:error] = "Le gossip n'a pas un format valide, merci de le saisir à nouveau"
+      flash[:error] = "Not in valid format!"
       render :edit
     end
   end
