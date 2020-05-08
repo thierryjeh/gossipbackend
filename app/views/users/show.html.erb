@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<br><br>
+ 
+  <div class="container">
+  <h1 class="display-4 text-center my-5">O0@@0£µ/£%</h1>
+
+      <div class="row justify-content-center">
+
+        <div class="card flex-row flex-wrap">
+         
+          <div class="card-block px-2 mt-4 ml-3">
+            <h4 class="card-title h2"><%= @current_user.first_name %> <%= @current_user.last_name.upcase %></h4>
+            <p class="card-text"><span class="h5"> </span><%= @current_user.age %> ans</p>
+            <p class="card-text"><span class="h5"> </span> <a href="<%= city_path(@current_user.city.id) %>"><%= @current_user.city.name %></p></a>
+
+            <p class="card-text"><span class="h5"> </span> <a href="mailto:<%= @current_user.email %>"><%= @current_user.email %></a></p>
+            <p class="card-text"><span class="h5"> </span><br /><%= @current_user.description %></p>
+            <a href="#" class="btn btn-light">📩</a>
+            <div class="w-100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+
+</html>  

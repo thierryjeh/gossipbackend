@@ -1,4 +1,8 @@
 class Tag < ApplicationRecord
-    has_many :goss_tags, dependent: :destroy
-    has_many :gossips, through: :goss_tags
+  has_many :gossip_tags
+  has_many :gossips, through: :gossip_tags
+
+  validates :title,
+    presence: true
+
 end

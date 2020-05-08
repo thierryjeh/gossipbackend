@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>TheGossiProject</title>
+  </head>
+  <body>
+    <div class="container text-center mt-5">
+      <h3 style="color: #053557">Edit Gossip !</h3>
+      <div class="m-5">
+        <%= form_tag url_for(action: 'update'), method: "put" do %>
+
+          <%= label_tag 'Title' %> <br/>
+          <%= text_field_tag 'title' %>
+          <br /> <br />
+
+          <%= label_tag 'Content' %> <br/>
+          <%= text_area_tag 'content' %>
+          <br /> <br />
+
+          <%= submit_tag "Edit" %> 
+        <% end %>
+        
+    </div>
+  </body>
+</html>

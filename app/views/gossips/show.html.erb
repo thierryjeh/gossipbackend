@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+  <body>
+  <br><br>
+    <div class="container">
+      <h4 class="display-5 text-center my-3">TheGossiProject</h4>
+
+      <div class="row justify-content-center">
+          <div class="col-l-1 col-md-8 col-sm-6">
+            <div class="card">
+              
+            <div class="container">
+                <div class="card my-5"> 
+                 
+                  <div class="card-body py-5">
+                    <h1 class="card-title text-center">
+                      <span class="font-weight-normal"><%= @gossip.title%> 👧⚔️🦇</span>
+                      <small><strong >&quot</strong>
+                      <a href="/user/<%= @gossip.user.id %>" class="text-info"><strong><%= @gossip.user.first_name%><strong> <%= @gossip.user.last_name%></a>
+                      </small>
+                    </h1>
+                    <h4 class="card-text pt-5 px-2"><%= @gossip.content%> 🦉☕</h4>    
+                  </div>
+                  <div class="card-body text-muted text-right">
+                     <%= @gossip.id %>-<%= @gossip.created_at.strftime("%d/%m/%Y") %>
+                  </div>
+                </div>
+
+
+              <div class="card-body">
+                <h5 class="card-title"><%=@gossip.title %></h5>
+                <p class="card-text"><%= @gossip.content %></p>
+                <p class="card-text">
+                <p class="card-text">
+           
+                </p>
+                <div class="row justify-content-center">
+                  <div class="col">
+                    <a class='btn btn-link btn-block' href="<%= edit_gossip_path %>">✍️</a>
+                  </div>
+                  <div class="col">
+                    <%= form_tag gossip_path(@gossip.id), method: "delete" do %>
+                    <%= submit_tag "🗑️", {class: 'btn btn-link btn-block'} %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+      </div>
+          
+   <br><br>
+
+<div justify-content-center>
+        <% @gossip.comments.each do |comment| %>
+          <p> <strong><%= comment.user.first_name %></strong>  </p>
+          <p>
+            <strong>Comments :</strong>
+            <%= comment.content %>
+          </p>
+          <%= link_to 'Modifier',  edit_gossip_comment_path(@gossip)%>
+        <% end %>  
+      </div>
+      <h2>Comments :</h2>
+          <div>
+            <%= render 'comments/index'%>
+            <%= render 'comments/new'%>
+          </div>
+      </div>
+  </body>
+
+</html>

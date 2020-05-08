@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+  <body>
+  <% if !flash[:success].nil? %>
+    <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
+  <% end %>
+  <% if !flash[:update].nil? %>
+    <div class="alert alert-success" role="alert"><%= flash[:update] %></div>
+  <% end %>
+  <div>
+  <%if session[:user_id] != nil%>
+    <h1>Hey <%= current_user.first_name %></h1>
+  <%else %>
+    <%if params[:first_name] == nil%>
+      <h1>Welcome hot stranger</h1>
+    <%elsif params[:action] == "create" && params[:commit] == "S'inscrire"%>
+      <h1>Welcome on our gossip website, <%= params[:first_name] %></h1>
+    <%else %>
+      <h1>Welcome <%= params[:first_name] %></h1>
+  <% end %>
+  <% end %>
+  </div>
+  
+  <main class="container">
+
+  <h2><button type="button" class="btn btn-light btn-lg"><%= link_to "Newgossip", new_gossip_path %> </button></h2>
+
+<div class="container-fluid">
+  <div class="pt-5 my-5 text-center">
+    
+  </div>
+  <div class="row">
+    <% Gossip.all.each do |gossip| %>
+      <div class="col-l-1 col-md-12 col-sm-6">
+        <div class="card border-dark mb-1" style="border-width: 1px;"> 
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= gossip.title %></h5>
+            
+            <p class="card-text text-center " > <strong >&quot</strong> <%= link_to gossip.user.first_name, user_path(gossip.user.id) %></p>
+          </div>
+
+      
+          
+         <%= link_to "👁", gossip_path(gossip.id), class:"btn btn-light"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</main>
+  </body>
+
+</html> 
+

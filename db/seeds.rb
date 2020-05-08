@@ -5,63 +5,62 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
+User.destroy_all
+City.destroy_all
+Gossip.destroy_all
+Tag.destroy_all
+Comment.destroy_all
 
-#City.destroy_all
 10.times do
-    city = City.create(
-        name: Faker::Nation.capital_city,
-        zip_code: Faker::Address.zip_code
-    )
+City.create(
+  name: Faker::Address.city,
+  zip_code: Faker::Address.zip_code
+)
 end
 
-#User.destroy_all
-10.times do
-    user = User.create(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        description: Faker::DcComics.villain,
-        email: Faker::Internet.free_email,
-        age: rand(10..176),
-        city: City.all.sample
-    )
+User.create(
+  first_name: "Fox", 
+  last_name: "Mulder", 
+  description: "I want to believe",
+  email: "zone51@email.com",
+  password: "xfiles",
+  password_confirmation: "xfiles",
+  age:rand(13..100),
+  city_id: City.all.sample.id
+)
+
+
+15.times do
+@password = Faker::Code.imei
+User.create(
+  first_name: Faker::Name.first_name, 
+  last_name: Faker::Name.last_name, 
+  description: Faker::Movie.quote,
+  email: Faker::Internet.email,
+  password: @password,
+  password_confirmation: @password,
+  age:rand(13..100),
+  city_id: City.all.sample.id
+)
 end
 
-#10 utilisateurs en base avec Faker.
-
-
-
-
-#Gossip.destroy_all
-20.times do
-    gossip = Gossip.create(
-        user: User.all.sample,
-        title: Faker::TvShows::Buffy.quote,
-        content: Faker::Books::Dune.quote
-    )
+100.times do
+Gossip.create(
+  title: Faker::Book.title,
+  content: Faker::Hipster.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+  user_id: User.all.sample.id
+)
 end
 
-#Tag.destroy_all
-10.times do
-    tag = Tag.create(
-        title: Faker::App.name
-    )
-end 
-
-#GossTag.destroy_all
-30.times do
-    gosstag = GossTag.create(
-        gossip: Gossip.all.sample,
-        tag: Tag.all.sample
-    )
+70.times do
+  Comment.create(
+    content: Faker::TvShows::Simpsons.quote,
+    user_id: User.all.sample.id,
+    gossip_id: Gossip.all.sample.id
+  )
 end
 
-PrivateMessage.destroy_all
 10.times do
-    private = PrivateMessage.new
-    private.sender = User.all.sample
-    private.recipient = User.all.sample
-    private.content = Faker::TvShows::TwinPeaks.quote
-    private.save
+Tag.create(title: "#" + Faker::Verb.base)
 end
