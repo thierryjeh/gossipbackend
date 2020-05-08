@@ -17,7 +17,7 @@
                     <h1 class="card-title text-center">
                       <span class="font-weight-normal"><%= @gossip.title%> 👧⚔️🦇</span>
                       <small><strong >&quot</strong>
-                      <a href="/user/<%= @gossip.user.id %>" class="text-info"><strong><%= @gossip.user.first_name%><strong> <%= @gossip.user.last_name%></a>
+                      <a href="<%= user_path(@gossip.user.id) %>" class="text-info"><strong><%= @gossip.user.first_name%><strong> <%= @gossip.user.last_name%></a>
                       </small>
                     </h1>
                     <h4 class="card-text pt-5 px-2"><%= @gossip.content%> 🦉☕</h4>    
