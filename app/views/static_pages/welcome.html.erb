@@ -22,11 +22,32 @@
   <body>
     <div class="jumbotron jumbotron-fluid">
       <div class="container text-center text-dark">
-        <h3 class="display-5">Welcome <%=params[:first_name] %> !!!</h3>
+        <h3 class="display-5 text-info">Welcome <%=params[:first_name] %> !!!</h3>  
+
+        <br><br><br> <br><br><br>
+        
+        <% hazard = rand(2..User.count) %>
 
 
+        <h5> &quot<%=Gossip.find(hazard).content %>&quot</h5>
+       <h4 class="text-primary"> <%= 
 
+User.find(hazard).first_name %> <%= User.find(hazard).last_name%></h4>
 
+        
+         <h6> &quot<%= Comment.find(hazard).content %>&quot</h6>
+         <h5 class="text-primary"> <%= User.find(Comment.find(hazard).user_id).first_name.capitalize %> <%= User.find(Comment.find(hazard).user_id).last_name.capitalize %></h5>
+    
+    <Br><br>
+
+       <h5> &quot<%=Gossip.last.content %>&quot</h5>
+       <h4 class="text-primary"> <%= 
+
+User.find(Gossip.last.user_id).first_name.capitalize %> <%= User.find(Gossip.last.user_id).last_name.capitalize%></h4>
+
+        
+         <h6> &quot<%= Comment.last.content %>&quot</h6>
+         <h5 class="text-primary"> <%= User.find(Comment.last.user_id).first_name.capitalize %> <%= User.find(Comment.last.user_id).last_name.capitalize %></h5>
 
 
        

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     end
     @user = User.new
-    @age = [7..77]
+    @age = [4..176]  #@age = [7..77] 
   end
 
   def create
