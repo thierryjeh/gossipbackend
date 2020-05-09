@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-#User.destroy_all
-#City.destroy_all
-#Gossip.destroy_all
-#Tag.destroy_all
-#Comment.destroy_all
+User.destroy_all
+City.destroy_all
+Gossip.destroy_all
+Tag.destroy_all
+Comment.destroy_all
 
 10.times do
 City.create(
@@ -18,7 +18,6 @@ City.create(
   zip_code: Faker::Address.zip_code
 )
 end
-
 
 User.create(
   first_name: "Fox", 
@@ -49,14 +48,14 @@ end
 100.times do
 Gossip.create(
   title: Faker::Book.title,
-  content: Faker::Hipster.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+  content: Faker::TvShows::Buffy.quote,
   user_id: User.all.sample.id
 )
 end
 
 70.times do
   Comment.create(
-    content: Faker::TvShows::Simpsons.quote,
+    content: Faker::TvShows::TwinPeaks.quote,
     user_id: User.all.sample.id,
     gossip_id: Gossip.all.sample.id
   )

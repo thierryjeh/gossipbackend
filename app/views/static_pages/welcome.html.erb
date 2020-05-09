@@ -6,7 +6,7 @@
         .jumbotron {
             width: 99.05vw;
             height: 95vh;
-            background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url("https://businessforimpact.georgetown.edu/wp-content/uploads/sites/126/2019/06/blur-close-up-computer-keyboard-792199-1024x683.jpg");
+            background-image: linear-gradient(to bottom, rgba(0, 0, 250, 0.25) 0%,rgba(125, 250, 250, 0.45) 100%), url("https://businessforimpact.georgetown.edu/wp-content/uploads/sites/126/2019/06/blur-close-up-computer-keyboard-792199-1024x683.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -15,6 +15,9 @@
           margin-top:500px; 
         
         }
+
+        
+
     </style>
 
   </head>
@@ -24,13 +27,13 @@
       <div class="container text-center text-dark">
         <h3 class="display-5 text-info">Welcome <%=params[:first_name] %> !!!</h3>  
 
-        <br><br><br> <br><br><br>
+        <br><br>
         
-        <% hazard = rand(2..User.count) %>
+        <% hazard = rand(2..Gossip.count) %>
 
 
         <h5> &quot<%=Gossip.find(hazard).content %>&quot</h5>
-       <h4 class="text-primary"> <%= 
+       <h4 class="text-light"> <%= 
 
 User.find(hazard).first_name %> <%= User.find(hazard).last_name%></h4>
 
