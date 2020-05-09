@@ -2,9 +2,9 @@
 <html lang="en">
 
   <body>
-  <br><br>
+  <br><br><br><br>
     <div class="container">
-      <h4 class="display-5 text-center my-3">TheGossiProject</h4>
+      <h3 class="display-5 text-center text-secondary my-3"><strong>TheGossiProject</strong></h3>
 
       <div class="row justify-content-center">
           <div class="col-l-1 col-md-8 col-sm-6">
@@ -65,7 +65,9 @@
           <%= link_to 'Edit',  edit_gossip_comment_path(@gossip)%>
         <% end %>  
       </div>
+      <br><br>
       <h2>Comments :</h2>
+      <br>
           <div>
             <%= render 'comments/index'%>
             <%= render 'comments/new'%>

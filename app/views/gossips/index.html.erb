@@ -10,10 +10,11 @@
   <% end %>
   <div>
   <%if session[:user_id] != nil%>
-    <h1>Hey <%= current_user.first_name %></h1>
+    <br><br><br><br><h3><strong>Hey <%= current_user.first_name %>!</strong></h3>
   <%else %>
     <%if params[:first_name] == nil%>
-      <h1>Welcome hot stranger</h1>
+    
+     <br> <br><br><br><h3><strong>Welcome !</strong></h3>
     <%elsif params[:action] == "create" && params[:commit] == "S'inscrire"%>
       <h1>Welcome on our gossip website, <%= params[:first_name] %></h1>
     <%else %>
@@ -24,10 +25,10 @@
   
   <main class="container">
 
-  <h2><button type="button" class="btn btn-light btn-lg"><%= link_to "Newgossip", new_gossip_path %> </button></h2>
+  <h2><button type="button" class="btn btn-light btn-lg"><%= link_to "New gossip", new_gossip_path %> </button></h2>
 
 <div class="container-fluid">
-  <div class="pt-5 my-5 text-center">
+  <div class="pt-1 my-5 text-center">
     
   </div>
   <div class="row">
