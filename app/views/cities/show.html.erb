@@ -1,17 +1,18 @@
 <br><br>
-  <h1><%= @current_city.name %></h1>
+  <h3><strong><%= @current_city.name %></strong></h3>
 
 <main class="container">
-  <h3>Town gossips</h3>
+  <h4>Town gossips</h4>
+  <br>
   <div class="row row-cols-5 d-flex justify-content-center">
     <% Gossip.all.each do |gossip| %>
       <% if gossip.user.city_id == @current_city.id %>
-        <div class="card border-info text-center bg-light my-6 mx-6" style="max-width: 18rem;"> 
+        <div class="card card-body text-center bg-light my-6 mx-6" style="max-width: 18rem;"> 
           <div class="card-body">
             <h5 class="card-title"><%= gossip.user.first_name %></h5>
             <p class="card-text"><%= gossip.title %></p>
           </div>
-          <div class="card-footer">
+          <div class="card-body">
             <%= link_to "👁", gossip_path(gossip.id), class:"btn btn-light" %>
             <% if current_user%>
               <% if current_user.id == gossip.user_id%>
